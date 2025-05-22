@@ -74,6 +74,9 @@ $("#singup").click(function () { // Matched the ID exactly from your HTML
     $("#auth-message").text("Attempting to create user...");
     handleSignUp(email, password); // Call the signup function\]
 
+
+
+    
 });
 
 $("#login").click(function () {
