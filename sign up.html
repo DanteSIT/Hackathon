@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Sign Up Form | CodeLab</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .dob-wrapper {
+      position: relative;
+    }
+
+    #dob::before {
+      content: '';
+    }
+
+    .field input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit {
+      color: transparent;
+    }
+
+    .field input[type="date"]::placeholder {
+      color: #aaa;
+    }
+
+    .show-placeholder::-webkit-datetime-edit {
+      color: #aaa !important;
+    }
+
+    .field {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="title">Sign Up Form</div>
+    <form action="#">
+      <div class="field">
+        <input type="text" required>
+        <label>Name</label>
+      </div>
+      <div class="field">
+        <input type="text" required>
+        <label>Surname</label>
+      </div>
+      <div class="field">
+        <input type="email" required>
+        <label>Email Address</label>
+      </div>
+      <div class="field">
+        <input type="tel" required>
+        <label>Mobile Number</label>
+      </div>
+      <div class="field">
+        <input type="text" required>
+        <label>NIN/Passport Number</label>
+      </div>
+
+      <div class="field dob-wrapper">
+        <input id="dob" type="date" required>
+        <label>Date of Birth</label>
+      </div>
+
+      <div class="field">
+        <input type="text" required>
+        <label>Address</label>
+      </div>
+
+      <div class="field">
+        <input type="submit" value="Sign Up">
+      </div>
+      <div class="signup-link">
+        Already a member? <a href="#">Login here</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const dobInput = document.getElementById('dob');
+
+    dobInput.addEventListener('focus', () => {
+      if (!dobInput.value) {
+        dobInput.classList.add('show-placeholder');
+      }
+    });
+
+    dobInput.addEventListener('blur', () => {
+      dobInput.classList.remove('show-placeholder');
+    });
+  </script>
+</body>
+</html>
