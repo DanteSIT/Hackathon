@@ -58,21 +58,22 @@ onAuthStateChanged(auth, (user) => {
 
 // Using the button IDs from your HTML (#singup, #login)
 $("#singup").click(function () { // Matched the ID exactly from your HTML
-    
+
     const f_name = $("#firstname").val();
     const surname = $("#surname").val();
-    const email = $("#email").val(); 
+    const email = $("#email").val();
     const mb_number = $("#mobile_num").val();
     const nin_pass = $().val("#nin_passport");
     const dob = $("#date_of_birth").val();
     const add = $("#address").val();
-    
+
     //create a vf 
     const password = $("#password").val();
     const password_vf = $("#password_vf").val();
-    
+
     $("#auth-message").text("Attempting to create user...");
     handleSignUp(email, password); // Call the signup function\]
+
 
 });
 
@@ -219,5 +220,16 @@ let product_price = $("pd_price").val(); //The price - Float or double?
  
 */
 
+
+
+  /* RF 
+     Name - firstname
+     Surname - surname
+     Email Address - email
+     Mobile Number - mobile_num
+     NIN/Passport Number - nin_passport
+     Date of Birth - date_of_birth
+     Address - address
+    */
 
 
