@@ -3,36 +3,60 @@
 <head>
   <meta charset="utf-8">
   <title>Sign Up Form | CodeLab</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style (1).css">
+
+  <!-- Flatpickr CSS for Date Picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   <style>
     .dob-wrapper {
       position: relative;
     }
 
-    #dob::before {
-      content: '';
+    #dob {
+      caret-color: #000;
     }
 
-    .field input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit {
-      color: transparent;
-    }
-
-    .field input[type="date"]::placeholder {
+    #dob::placeholder {
       color: #aaa;
+      transition: opacity 0.2s;
     }
 
-    .show-placeholder::-webkit-datetime-edit {
-      color: #aaa !important;
+    #dob:focus::placeholder {
+      opacity: 1;
     }
 
     .field {
       position: relative;
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      color: #999;
+      font-size: 14px;
+      pointer-events: none;
+      transition: 0.3s ease all;
+    }
+
+    .field input:focus + label,
+    .field input:not(:placeholder-shown) + label {
+      color: #333;
+    }
+
+    small {
+      color: #888;
+      font-size: 12px;
+      display: block;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <div class="title">Sign Up Form</div>
+    <div class="title">Sign Up</div>
     <form action="#">
       <div class="field">
         <input type="text" required>
@@ -56,8 +80,9 @@
       </div>
 
       <div class="field dob-wrapper">
-        <input id="dob" type="date" required>
-        <label>Date of Birth</label>
+        <input id="dob" type="text" placeholder="dd/mm/yyyy" required>
+        <label for="dob"></label>
+        
       </div>
 
       <div class="field">
@@ -74,17 +99,12 @@
     </form>
   </div>
 
+  <!-- Flatpickr Script -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    const dobInput = document.getElementById('dob');
-
-    dobInput.addEventListener('focus', () => {
-      if (!dobInput.value) {
-        dobInput.classList.add('show-placeholder');
-      }
-    });
-
-    dobInput.addEventListener('blur', () => {
-      dobInput.classList.remove('show-placeholder');
+    flatpickr("#dob", {
+      dateFormat: "d/m/Y",
+      maxDate: "today"
     });
   </script>
 </body>
