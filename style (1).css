@@ -10,7 +10,7 @@ html,body{
   height: 106%;
   width: 100%;
   place-items: center;
-  background: #f2f2f2;
+  background: #f5e6f1;
   /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
 }
 ::selection{
